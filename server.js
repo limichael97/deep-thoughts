@@ -2,6 +2,8 @@ const express = require('express');
 
 // import ApolloServer
 const { ApolloServer } = require('apollo-server-express');
+const { ApolloServerPluginLandingPageGraphQLPlayground } = require('apollo-server-core');
+
 
 // import our typeDefs and resolvers
 const { typeDefs, resolvers } = require('./schemas');
@@ -15,6 +17,11 @@ const startServer = async () => {
   const server = new ApolloServer({ 
     typeDefs, 
     resolvers, 
+    plugins: [
+      ApolloServerPluginLandingPageGraphQLPlayground({
+        // options
+      })
+    ]
   });
 
   // Start the Apollo server
