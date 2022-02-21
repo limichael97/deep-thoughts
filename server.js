@@ -1,5 +1,8 @@
 const express = require('express');
 
+const { authMiddleware } = require('./utils/auth');
+
+
 // import ApolloServer
 const { ApolloServer } = require('apollo-server-express');
 const { ApolloServerPluginLandingPageGraphQLPlayground } = require('apollo-server-core');
@@ -17,6 +20,7 @@ const startServer = async () => {
   const server = new ApolloServer({ 
     typeDefs, 
     resolvers, 
+    context: authMiddleware,
     plugins: [
       ApolloServerPluginLandingPageGraphQLPlayground({
         // options
