@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 
+
 const Signup = () => {
   const [formState, setFormState] = useState({ username: '', email: '', password: '' });
 
@@ -17,6 +18,8 @@ const Signup = () => {
   const handleFormSubmit = async (event) => {
     event.preventDefault();
   };
+
+  
 
   return (
     <main className='flex-row justify-center mb-4'>
