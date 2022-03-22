@@ -49,7 +49,6 @@ const resolvers = {
       const user = await User.create(args);
       const token = signToken(user);
 
-    
       return { token, user };
     },
     login: async (parent, { email, password }) => {
@@ -69,6 +68,7 @@ const resolvers = {
       return { token, user };    },
 
       addThought: async (parent, args, context) => {
+        console.log(context)
         if (context.user) {
           const thought = await Thought.create({ ...args, username: context.user.username });
       

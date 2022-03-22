@@ -40,6 +40,8 @@ const Profile = () => {
     );
   }
 
+  console.log(user._id)
+
   const handleClick = async () => {
     try {
       await addFriend({
